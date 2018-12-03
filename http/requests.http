@@ -1,0 +1,13 @@
+POST localhost:8080/notes
+Content-Type : application/json
+Accept: application/json
+{
+  "id" : "",
+  "author" : "Richard",
+  "content" : "hola"
+  "creationDate" : "",
+  "lastModified" : "",
+  "author" : ""
+}
+
+###
