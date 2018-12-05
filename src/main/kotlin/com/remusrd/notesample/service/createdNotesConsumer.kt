@@ -1,15 +1,15 @@
 package com.remusrd.notesample.service
 
-import com.remusrd.notesample.domain.event.NoteEvent
 import org.springframework.kafka.annotation.KafkaListener
+import org.springframework.messaging.Message
 import org.springframework.stereotype.Component
 
 @Component
 class createdNotesConsumer {
 
 
-    @KafkaListener(topics =["notes"])
-    fun recieve(noteEvent:NoteEvent){
-        println("recibido" + noteEvent + noteEvent.javaClass)
+    @KafkaListener(topics = ["notes"], groupId = "noteGroup")
+    fun recieve(noteEvent: Message<Any>) {
+        println("received" + noteEvent + noteEvent.javaClass)
     }
 }

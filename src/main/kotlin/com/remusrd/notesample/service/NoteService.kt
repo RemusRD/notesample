@@ -7,5 +7,5 @@ import com.remusrd.notesample.domain.Note
 interface NoteService {
     fun getNotesByAuthor(author: String) : Option<NonEmptyList<Note>>
     fun getAllNotes() : Option<NonEmptyList<Note>>
-    fun createNote(note:Option<Note>)
+    fun createNote(note: Option<Note>): Note
 }
