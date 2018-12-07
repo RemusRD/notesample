@@ -20,7 +20,7 @@ class JpaNoteService : NoteService {
     @Autowired
     private lateinit var noteRepository: NoteRepository
     @Autowired
-    private lateinit var kafkaTemplate: KafkaTemplate<String, NoteEvent>
+    private lateinit var kafkaTemplate: KafkaTemplate<Any, Any>
 
     override fun getAllNotes(): Option<NonEmptyList<Note>> =
         NonEmptyList.fromList(noteRepository.findAll())
