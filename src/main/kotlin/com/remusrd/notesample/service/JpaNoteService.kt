@@ -27,6 +27,7 @@ class JpaNoteService : NoteService {
 
     override fun createNote(note: Option<Note>): Note {
         note.map {
+            noteRepository.save(it)
             kafkaTemplate.send(TOPIC_NAME, NoteEvent.Created(it))
         }
         return note.getOrElse { Note(id = 0) }
